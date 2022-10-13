@@ -1,0 +1,10 @@
+.info-tooltip__icon {
+  display: block;
+  width: 120px;
+  margin: 60px auto 40px;
+}
+@media screen and (min-width: 880px) {
+  .info-tooltip__icon {
+    margin-bottom: 32px;
+  }
+}

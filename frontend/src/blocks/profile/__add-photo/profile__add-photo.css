@@ -1,0 +1,44 @@
+.profile__add-photo {
+  margin: 0 19px;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url(../../../image/profile/add-button.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px;
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+  cursor: pointer;
+  min-height: 50px;
+  width: 282px;
+}
+
+.profile__add-photo:hover {
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 540px) {
+  .profile__add-photo {
+    margin: 0;
+    width: 240px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .profile__add-photo {
+    width: 200px;
+    justify-self: end;
+    align-self: center;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .profile__add-photo {
+    width: 175px;
+    background-size: 22px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .profile__add-photo {
+    width: 150px;
+  }
+}

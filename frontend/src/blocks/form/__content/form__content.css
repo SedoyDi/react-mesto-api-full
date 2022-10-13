@@ -1,0 +1,12 @@
+.form__content {
+  margin: 25px auto;
+  width: 238px;
+  position: relative;
+}
+
+@media screen and (min-width: 880px) {
+  .form__content {
+    width: 358px;
+    margin: 33px auto;
+  }
+}

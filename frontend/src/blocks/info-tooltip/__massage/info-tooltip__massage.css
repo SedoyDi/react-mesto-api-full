@@ -1,0 +1,17 @@
+.info-tooltip__massage {
+  margin: 0 auto 60px;
+  width: 244px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #000;
+}
+
+@media screen and (min-width: 880px) {
+  .info-tooltip__massage {
+    width: 358px;
+    font-size: 24px;
+    line-height: 29px;
+  }
+}

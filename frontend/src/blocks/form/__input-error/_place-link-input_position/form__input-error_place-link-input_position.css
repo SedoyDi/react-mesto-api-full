@@ -1,0 +1,11 @@
+.form__input-error_place-link-input_position {
+  position: absolute;
+  left: 0;
+  top: 193px;
+}
+
+@media screen and (min-width: 880px) {
+  .form__input-error_place-link-input_position {
+    top: 174px;
+  }
+}

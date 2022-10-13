@@ -1,0 +1,11 @@
+.form__input-error_name_position {
+  position: absolute;
+  left: 0;
+  top: 130px;
+}
+
+@media screen and (min-width: 880px) {
+  .form__input-error_name_position {
+    top: 111px;
+  }
+}

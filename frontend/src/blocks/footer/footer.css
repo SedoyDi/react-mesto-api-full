@@ -1,0 +1,21 @@
+.footer {
+  margin: 48px 19px auto 36px;
+  width: 282px;
+}
+@media screen and (min-width: 768px) {
+  .footer {
+    margin-left: 20px;
+    margin-bottom: 60px;
+    width: 318px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .footer {
+    margin-left: 10px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer {
+    margin-left: 0;
+  }
+}

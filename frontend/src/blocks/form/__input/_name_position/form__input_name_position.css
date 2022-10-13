@@ -1,0 +1,12 @@
+.form__input_name_position {
+  margin-top: 75px;
+  padding: 0;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+@media screen and (min-width: 880px) {
+  .form__input_name_position {
+    margin-top: 48px;
+  }
+}
