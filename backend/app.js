@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { login, createUser } = require('./controllers/user');
 const { validateAuthorization, validateRegistration } = require('./middlewares/validation');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/notFoudError');
 
@@ -25,6 +26,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(requestLogger);
+
 app.post('/signin', validateAuthorization, login);
 app.post('/signup', validateRegistration, createUser);
 app.use(auth);
@@ -35,6 +38,7 @@ app.use('/*', (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
 
+app.use(errorLogger);
 app.use(errors());
 
 app.use((err, req, res, next) => {
