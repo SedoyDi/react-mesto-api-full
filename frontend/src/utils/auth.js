@@ -1,4 +1,4 @@
-const BASE_URL = "https://auth.nomoreparties.co";
+const BASE_URL = 'http://localhost:5555';
 
 const _getResponse = (res) => {
   if (res.ok) {
