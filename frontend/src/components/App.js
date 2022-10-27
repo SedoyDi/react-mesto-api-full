@@ -21,7 +21,7 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState({
     name: "Пользователь",
-    link: "",
+    avatar: "",
     about: "О себе",
   });
   const [selectedCard, setSelectedCard] = useState(null);
@@ -107,7 +107,7 @@ const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
         .getDataAll()
         .then(([cards, userInfo]) => {
           setCurrentUser(userInfo);
-          setCards(cards);
+          setCards(cards.data);
         })
         .catch((err) => {
           console.log(err);
@@ -122,8 +122,10 @@ const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   function handleUpdateUser(data) {
     api
       .changeProfileInfo(data)
-      .then((newUserInfo) => {
-        setCurrentUser(newUserInfo);
+      .then((data) => {
+        currentUser.name = data.name;
+        currentUser.about = data.about;
+        setCurrentUser(currentUser);
         closeAllPopups();
       })
       .catch((err) => {
@@ -134,8 +136,9 @@ const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   function handleUpdateAvatar(data) {
     api
       .changeAvatar(data)
-      .then((newUserInfo) => {
-        setCurrentUser(newUserInfo);
+      .then((data) => {
+        currentUser.avatar = data.avatar;
+        setCurrentUser(currentUser);
         closeAllPopups();
       })
       .catch((err) => {
@@ -146,8 +149,8 @@ const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   function handleAddPlaceSubmit(data) {
     api
       .postCard(data)
-      .then((newCard) => {
-        setCards([newCard, ...cards]);
+      .then((data) => {
+        setCards([data.card, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
@@ -156,12 +159,12 @@ const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) =>
-          state.map((c) => (c._id === card._id ? newCard : c))
+          state.map((c) => (c._id === card._id ? newCard.data : c))
         );
       })
       .catch((err) => {

@@ -2,12 +2,6 @@ class Api {
   constructor({ url, headers }) {
     this._url = url;
     this._headers = headers;
-    this.addLike = this.addLike.bind(this);
-    this.postCard = this.postCard.bind(this);
-    this.deleteLike = this.deleteLike.bind(this);
-    this.changeAvatar = this.changeAvatar.bind(this);
-    this.deleteCardApi = this.deleteCardApi.bind(this);
-    this.changeProfileInfo = this.changeProfileInfo.bind(this);
   }
 
   _check(res) {
@@ -50,7 +44,6 @@ class Api {
   }
 
   changeProfileInfo(data) {
-    console.log(data);
     return fetch(`${this._url}/users/me`, {
       method: "PATCH",
       headers: this._headers,
@@ -62,7 +55,6 @@ class Api {
   }
 
   changeAvatar(data) {
-    console.log(data);
     return fetch(`${this._url}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
