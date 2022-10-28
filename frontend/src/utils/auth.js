@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:5555';
+const BASE_URL = 'https://api.testfrontsedov.nomoredomains.icu';
 
 const _getResponse = (res) => {
   if (res.ok) {

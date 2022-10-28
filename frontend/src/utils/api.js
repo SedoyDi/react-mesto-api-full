@@ -94,7 +94,7 @@ class Api {
 let token = localStorage.getItem("jwt");
 
 const api = new Api({
-  url: 'http://localhost:5555',
+  url: 'https://api.testfrontsedov.nomoredomains.icu',
   headers: {
     Authorization:  `Bearer ${token}`,
     "Content-Type": "application/json",
