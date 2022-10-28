@@ -2,6 +2,15 @@ class Api {
   constructor({ url, headers }) {
     this._url = url;
     this._headers = headers;
+    this._token =null;
+  }
+
+  setToken(token) {
+    this._token = token;
+    this._headers = {
+      ...this._headers,
+      Authorization: `Bearer ${token}`
+    }
   }
 
   _check(res) {
@@ -91,13 +100,10 @@ class Api {
   }
 }
 
-let token = localStorage.getItem("jwt");
-
 const api = new Api({
   url: 'https://api.testfrontsedov.nomoredomains.icu',
   //url: 'http://localhost:5555',
   headers: {
-    Authorization:  `Bearer ${token}`,
     "Content-Type": "application/json",
   },
 });

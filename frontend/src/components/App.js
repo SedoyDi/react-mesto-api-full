@@ -67,9 +67,11 @@ const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
         setIsInfoTooltipOpen(true);
       });
   }
+
   function handleLogin(userInfo) {
     authorization(userInfo)
       .then((res) => {
+        api.setToken(res.token);
         localStorage.setItem("jwt", res.token);
         setLoggedIn(true);
         setUserEmail(userInfo.email);
@@ -80,13 +82,16 @@ const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
         setLoggedIn(false);
       });
   }
+
   function handleLogOut() {
-    localStorage.removeItem("token");
+    localStorage.removeItem("jwt");
     setLoggedIn(false);
   }
+
   function handleCheckToken() {
     const token = localStorage.getItem("jwt");
     if (token) {
+      api.setToken(token);
       checkToken(token)
         .then((res) => {
           if (res) {

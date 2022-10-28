@@ -14,7 +14,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./build/* ssh sedoydi@62.84.120.110:~/react-mesto-api-full/frontend/build"
+    "deploy": "npm run build && scp -r ./build/* ssh sedoydi@51.250.97.111:~/react-mesto-api-full/frontend/build"
   },
   "repository": {
     "type": "git",
