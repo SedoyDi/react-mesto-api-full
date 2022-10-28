@@ -97,7 +97,6 @@ const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
           if (res) {
             setUserEmail(res.email);
             setLoggedIn(true);
-            history.push("/");
           }
         })
         .catch((err) => {
@@ -113,12 +112,13 @@ const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
         .then(([cards, userInfo]) => {
           setCurrentUser(userInfo);
           setCards(cards.data);
+          history.push("/");
         })
         .catch((err) => {
           console.log(err);
         });
     }
-  }, [loggedIn]);
+  }, [history,loggedIn]);
 
   useEffect(() => {
     handleCheckToken();
